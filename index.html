@@ -1,0 +1,523 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#ffd928">
+  <title>美团外卖 · 状态点餐助手</title>
+  <link rel="stylesheet" href="styles.css?v=20260613-cart-checkout">
+</head>
+<body>
+  <main class="app-shell">
+    <section class="phone" aria-label="美团状态点餐助手交互原型">
+      <div class="status-bar">
+        <span>16:44</span>
+        <span class="status-icons">▮▮▮  ◉  <b>72</b></span>
+      </div>
+
+      <section class="page home-page is-active" id="homePage" aria-labelledby="homeTitle">
+        <header class="hero-header">
+          <div class="top-nav">
+            <strong class="back-label">‹ <span>外卖</span></strong>
+            <nav aria-label="频道">
+              <button class="nav-tab active" type="button">首页</button>
+              <button class="nav-tab" type="button">自取</button>
+            </nav>
+            <button class="message-button" type="button" aria-label="消息">
+              <span>•••</span><b>4</b>
+            </button>
+          </div>
+          <button class="location" type="button">
+            <span>⌖</span> 上海交通大学(闵行校区) <b>›</b>
+          </button>
+          <form class="search" id="searchForm">
+            <span class="search-icon">⌕</span>
+            <span class="ai-badge">AI</span>
+            <input aria-label="搜索外卖" value="低糖低脂的下午茶">
+            <button type="submit">搜索</button>
+          </form>
+        </header>
+
+        <div class="home-content">
+          <section class="category-panel" aria-label="外卖分类">
+            <button type="button"><span class="cat-icon cat-food">🍽</span><b>美食</b></button>
+            <button type="button"><span class="cat-icon cat-drink">🥤</span><b>甜点饮品</b></button>
+            <button type="button"><span class="cat-icon cat-market">🛒</span><b>超市便利</b></button>
+            <button type="button"><span class="cat-icon cat-fruit">🍑</span><b>蔬菜水果</b></button>
+            <button type="button"><span class="cat-icon cat-medicine">💼</span><b>看病买药</b></button>
+            <button type="button"><span class="cat-icon cat-tea">☕</span><b>下午茶</b></button>
+            <button type="button"><span class="cat-icon cat-group">🛍</span><b>拼好饭</b></button>
+            <button type="button"><span class="cat-icon cat-canteen">🍱</span><b>校内食堂</b></button>
+            <button type="button"><span class="cat-icon cat-run">⚡</span><b>跑腿</b></button>
+            <button type="button"><span class="cat-icon cat-sale">¥</span><b>天天津贴</b></button>
+            <i aria-hidden="true"></i>
+          </section>
+
+          <section class="status-entry-card">
+            <div class="entry-heading">
+              <div>
+                <span class="entry-kicker">✨ AI 身体状态点餐建议</span>
+                <h1 id="homeTitle">今天身体怎么样？</h1>
+                <p>告诉 AI 你的当前状态，帮你避开刺激餐食，优先推荐更舒服的选择</p>
+              </div>
+              <div class="entry-food-photo" aria-hidden="true"><span>温热清淡</span></div>
+            </div>
+            <div class="quick-state-list" aria-label="快捷状态选择">
+              <button type="button" data-quick-state="嗓子疼">🗣️ 嗓子疼</button>
+              <button type="button" data-quick-state="感冒发烧">🤒 感冒</button>
+              <button type="button" data-quick-state="痛经">💧 痛经</button>
+              <button type="button" data-quick-state="胃不舒服">🫛 胃不舒服</button>
+              <button type="button" data-quick-state="熬夜疲惫">🌙 熬夜疲惫</button>
+            </div>
+            <button class="entry-primary" id="openAssistant" type="button">
+              <span>当前状态：<b id="homeStateText">还未选择</b></span>
+              <strong>查看饮食建议 ›</strong>
+            </button>
+          </section>
+
+          <section class="merchant-section">
+            <div class="merchant-tabs">
+              <button class="selected" type="button">附近商家</button>
+              <button type="button">特价外卖</button>
+              <button class="fast-order" type="button">一键下单</button>
+              <button class="text-link" id="historyButton" type="button">周报 ›</button>
+            </div>
+            <article class="merchant-card">
+              <div class="merchant-logo">
+                <span>喜家德</span>
+                <b>全国直营900家</b>
+              </div>
+              <div class="merchant-info">
+                <h2>喜家德虾仁水饺(上海龙湖天街店)</h2>
+                <p>月售2000+ · 堂食店 · 无明厨亮灶</p>
+                <p>起送 ¥30　配送约¥4.3 <span>2.9km 30分钟</span></p>
+                <strong>4.9分 大众点评高分店铺</strong>
+                <em>神券 满30减12</em>
+              </div>
+            </article>
+            <div class="coupon-strip">
+              <b>567%</b>
+              <span>沪上美食 通关指南</span>
+              <button type="button">立即抢</button>
+            </div>
+            <div class="ticket-strip">
+              <span>神券</span>
+              <b>你有一张13元神券未使用，仅剩 23:59:21</b>
+              <button type="button">去使用</button>
+            </div>
+          </section>
+        </div>
+
+        <nav class="bottom-nav" aria-label="底部导航">
+          <button class="active" type="button"><span>外卖</span><b>外卖</b></button>
+          <button type="button"><span>神</span><b>神券</b></button>
+          <button class="rush" type="button"><span>抢</span></button>
+          <button type="button"><span>▤</span><b>订单</b></button>
+          <button type="button"><span>♧</span><b>我的</b></button>
+        </nav>
+      </section>
+
+      <section class="page assistant-page" id="assistantPage" aria-labelledby="assistantTitle">
+        <header class="flow-header">
+          <button id="assistantBack" type="button" aria-label="返回">‹</button>
+          <div><h1 id="assistantTitle">状态点餐助手</h1><p>AI 只提供饮食选择参考，不进行医疗诊断</p></div>
+          <button id="assistantHistory" type="button">日历</button>
+        </header>
+
+        <div class="flow-progress">
+          <div class="active" data-progress-step="supplement"><span>1</span><b>补充状态</b></div>
+          <i></i>
+          <div data-progress-step="analysis"><span>2</span><b>AI分析</b></div>
+          <i></i>
+          <div data-progress-step="results"><span>3</span><b>外卖推荐</b></div>
+        </div>
+
+        <div class="flow-body">
+          <section class="flow-step is-active" id="supplementStep" data-flow-step="supplement">
+            <div class="current-state-card">
+              <span id="currentStateIcon">🗣️</span>
+              <div><small>当前状态</small><h2 id="currentStateName">嗓子疼</h2><p id="currentStateAdvice">你可能更适合：温润、清淡、少油、少辣、少冰的餐食。</p></div>
+              <button id="changeStateButton" type="button">更换</button>
+            </div>
+
+            <div class="state-picker" id="statePicker" hidden>
+              <button class="flow-state selected" type="button" data-flow-state="嗓子疼" data-state-icon="🗣️">🗣️ 嗓子疼</button>
+              <button class="flow-state" type="button" data-flow-state="感冒发烧" data-state-icon="🤒">🤒 感冒发烧</button>
+              <button class="flow-state" type="button" data-flow-state="痛经" data-state-icon="💧">💧 痛经</button>
+              <button class="flow-state" type="button" data-flow-state="胃不舒服" data-state-icon="🫛">🫛 胃不舒服</button>
+              <button class="flow-state" type="button" data-flow-state="熬夜疲惫" data-state-icon="🌙">🌙 熬夜疲惫</button>
+              <button class="flow-state" type="button" data-flow-state="酒后恢复" data-state-icon="💧">💧 酒后恢复</button>
+            </div>
+
+            <section class="choice-section">
+              <h3>现在嗓子疼到什么程度？ <em>单选</em></h3>
+              <div class="choice-list single-choice" data-choice-group="程度">
+                <button class="choice-chip selected" type="button">轻微不适</button>
+                <button class="choice-chip" type="button">明显疼痛</button>
+                <button class="choice-chip" type="button">伴随咳嗽</button>
+                <button class="choice-chip" type="button">吞咽不适</button>
+              </div>
+            </section>
+
+            <section class="choice-section">
+              <h3>你现在更想吃什么？ <em>单选</em></h3>
+              <div class="choice-list single-choice" data-choice-group="想吃">
+                <button class="choice-chip selected" type="button">♨️ 想喝热的</button>
+                <button class="choice-chip" type="button">🍚 想吃主食</button>
+                <button class="choice-chip" type="button">🍯 想吃甜的</button>
+                <button class="choice-chip" type="button">🥣 想喝汤粥</button>
+                <button class="choice-chip" type="button">😶 没胃口</button>
+              </div>
+            </section>
+
+            <section class="choice-section">
+              <h3>需要帮你避开哪些？ <em>可多选</em></h3>
+              <div class="choice-list multi-choice" data-choice-group="避开">
+                <button class="choice-chip selected" type="button">🧊 冰饮</button>
+                <button class="choice-chip selected" type="button">🌶️ 辛辣</button>
+                <button class="choice-chip" type="button">🍗 油炸</button>
+                <button class="choice-chip" type="button">重口味</button>
+                <button class="choice-chip" type="button">太甜</button>
+                <button class="choice-chip" type="button">生冷</button>
+              </div>
+            </section>
+
+            <section class="choice-section allergy-section">
+              <h3>过敏 / 忌口 <em>可选</em></h3>
+              <div class="choice-list multi-choice" data-choice-group="过敏">
+                <button class="choice-chip" type="button">海鲜</button>
+                <button class="choice-chip" type="button">牛奶</button>
+                <button class="choice-chip" type="button">坚果</button>
+                <button class="choice-chip" type="button">鸡蛋</button>
+                <button class="choice-chip" type="button">香菜</button>
+                <button class="choice-chip custom-choice" type="button">＋ 自定义</button>
+              </div>
+              <p>如有过敏或忌口，请先选择，系统会避开相关菜品。</p>
+            </section>
+
+            <button class="flow-primary" id="viewAnalysisButton" type="button">查看 AI 饮食分析</button>
+          </section>
+
+          <section class="flow-step" id="analysisStep" data-flow-step="analysis">
+            <section class="ai-understood-card">
+              <div class="ai-orbit">AI</div>
+              <div><span>AI 已理解你的状态</span><h2 id="analysisStateName">当前状态：嗓子疼</h2><p id="analysisSummary">明显疼痛｜想喝热的｜避开辛辣、冰饮</p></div>
+            </section>
+
+            <section class="direction-card">
+              <div class="direction-title">
+                <div>
+                  <span>AI 饮食建议</span>
+                  <h3 id="analysisAdviceTitle">现在更适合温润清淡</h3>
+                </div>
+                <b id="analysisAdviceTag">咽喉友好</b>
+              </div>
+              <p class="advice-lead" id="analysisAdviceLead">根据你现在的嗓子不适状态，更适合选择温热、软润、刺激性低的餐食，比如冰糖雪梨、小米南瓜粥、蒸蛋和清炖汤类。</p>
+              <div class="direction-tags"><span>温润</span><span>清淡</span><span>少刺激</span><span>易吞咽</span><span>少油少辣</span></div>
+              <div class="advice-grid">
+                <article><small>适合吃</small><p id="analysisEatText">雪梨汤、小米粥、蒸蛋、清炖汤</p></article>
+                <article><small>可能帮助</small><p id="analysisBenefitText">补充水分、减少吞咽刺激，让喉咙更舒服</p></article>
+                <article><small>少选择</small><p id="analysisAvoidText">冰饮、重辣、油炸、过硬食物</p></article>
+              </div>
+            </section>
+
+            <div class="analysis-food-list">
+              <article><span>🍐</span><div><h3>冰糖雪梨</h3><p><b>推荐原因：</b>口感温润，刺激性较低，适合嗓子干痒时饮用。</p><small><b>注意：</b>需要控糖时请选择少糖或无糖版本。</small></div></article>
+              <article><span>🥣</span><div><h3>小米南瓜粥</h3><p><b>推荐原因：</b>清淡、温热、容易吞咽，也比较好消化。</p><small><b>注意：</b>不喜欢甜口可替换为小米粥或白粥。</small></div></article>
+              <article><span>🍲</span><div><h3>山药排骨汤</h3><p><b>推荐原因：</b>温热有饱腹感，适合想吃正餐又不想吃刺激食物时选择。</p><small><b>注意：</b>汤底偏咸时建议少喝汤。</small></div></article>
+              <article><span>🐟</span><div><h3>清蒸鱼</h3><p><b>推荐原因：</b>高蛋白、少油少辣，相比炸物和烧烤刺激更低。</p><small><b>注意：</b>海鲜或鱼类过敏用户不要选择。</small></div></article>
+            </div>
+
+            <aside class="safety-card">
+              <b>🛡️ 过敏 / 忌口提醒</b>
+              <p>系统推荐仅作为点餐参考，不替代专业医疗建议；如果症状持续或加重，请及时就医。</p>
+            </aside>
+
+            <button class="flow-primary" id="generateResultsButton" type="button">生成适合我的外卖推荐</button>
+            <p class="button-caption">将结合附近商家、菜品标签、评论关键词、图片一致性和配送时长进行推荐</p>
+          </section>
+
+          <section class="flow-step" id="resultsStep" data-flow-step="results">
+            <div class="result-heading">
+              <span>AI 已核验附近 326 个菜品</span>
+              <h2 id="resultTitle">适合嗓子疼的外卖推荐</h2>
+              <p id="resultSubtitle">已为你优先筛选：温润、清淡、少刺激、易吞咽的餐食</p>
+              <p class="result-restriction" id="resultRestriction" hidden></p>
+            </div>
+            <div class="result-filters"><button class="selected" type="button">综合推荐</button><button type="button">30分钟内</button><button type="button">评分 4.8+</button><button type="button">少糖</button></div>
+
+            <div class="verified-product-list">
+              <article class="verified-product">
+                <div class="verified-image"><img src="assets/food/fruit-cup.jpg" alt="冰糖雪梨 · 润喉推荐"><b>最推荐</b></div>
+                <div class="verified-main"><h3>冰糖雪梨 · 润喉推荐</h3><p class="store-line">汤小满甜品 · 月售256 · 约28分钟</p><div class="verify-reason"><b>推荐理由</b><span>口感温润，刺激性较低，适合嗓子不舒服时选择。</span></div><p class="verify-line">✦ AI核验：评论图文一致度 <b>92%</b></p><p class="keyword-line">用户评价关键词：真材实料 / 不太甜 / 送来还是热的</p><div class="product-bottom"><strong>¥12.8</strong><button class="order-button" type="button">＋ 加入</button></div></div>
+              </article>
+              <article class="verified-product">
+                <div class="verified-image"><img src="assets/food/rice-bowl.jpg" alt="南瓜小米粥"></div>
+                <div class="verified-main"><h3>南瓜小米粥</h3><p class="store-line">粥员外 · 月售382 · 约25分钟</p><div class="verify-reason"><b>推荐理由</b><span>清淡温热、容易吞咽，没胃口时也更容易接受。</span></div><p class="verify-line">✦ AI核验：评论图文一致度 <b>95%</b></p><p class="keyword-line">用户评价关键词：粥很稠 / 热乎 / 甜度刚好</p><div class="product-bottom"><strong>¥10.9</strong><button class="order-button" type="button">＋ 加入</button></div></div>
+              </article>
+              <article class="verified-product">
+                <div class="verified-image"><img src="assets/food/chicken-soup.jpg" alt="山药菌菇鸡汤"></div>
+                <div class="verified-main"><h3>山药菌菇鸡汤</h3><p class="store-line">汤先生 · 月售294 · 约33分钟</p><div class="verify-reason"><b>推荐理由</b><span>温热、有饱腹感，口味相对温和，适合作为正餐。</span></div><p class="verify-line">✦ AI核验：评论图文一致度 <b>90%</b></p><p class="keyword-line">用户评价关键词：肉量足 / 不油腻 / 汤还是热的</p><div class="product-bottom"><strong>¥18.8</strong><button class="order-button" type="button">＋ 加入</button></div></div>
+              </article>
+              <article class="verified-product">
+                <div class="verified-image"><img src="assets/food/steamed-egg.jpg" alt="鲜蒸鸡蛋羹"></div>
+                <div class="verified-main"><h3>鲜蒸鸡蛋羹</h3><p class="store-line">真功夫 · 月售452 · 约28分钟</p><div class="verify-reason"><b>推荐理由</b><span>质地软嫩、少油少辣，吞咽时刺激更低。</span></div><p class="verify-line">✦ AI核验：评论图文一致度 <b>94%</b></p><p class="keyword-line">用户评价关键词：很嫩 / 不咸 / 分量合适</p><div class="product-bottom"><strong>¥9.9</strong><button class="order-button" type="button">＋ 加入</button></div></div>
+              </article>
+            </div>
+
+            <section class="feedback-card" id="feedbackCard" hidden>
+              <span>帮助 AI 更懂你</span><h3>这次推荐适合你吗？</h3>
+              <div class="feedback-main"><button type="button">很适合</button><button type="button">一般</button><button type="button">不适合</button></div>
+              <div class="feedback-reasons"><button type="button">太甜</button><button type="button">不够热</button><button type="button">还是刺激</button><button type="button">分量少</button></div>
+              <p>你的反馈会进入下一次推荐，自动减少相似商品。</p>
+            </section>
+          </section>
+        </div>
+      </section>
+
+      <section class="page product-detail-page" id="productDetailPage" aria-labelledby="detailProductName">
+        <header class="detail-topbar">
+          <button id="detailBack" type="button" aria-label="返回推荐列表">‹</button>
+          <div>
+            <button id="detailFavorite" type="button" aria-label="收藏商品">☆</button>
+            <button id="detailShare" type="button" aria-label="分享商品">↗</button>
+          </div>
+        </header>
+
+        <div class="detail-scroll">
+          <figure class="detail-hero">
+            <img id="detailProductImage" src="assets/food/rice-bowl.jpg" alt="">
+            <figcaption><span>AI 状态推荐</span><b id="detailVerifyBadge">图文核验 95%</b></figcaption>
+          </figure>
+
+          <section class="detail-card detail-overview">
+            <div class="detail-price-row">
+              <strong id="detailProductPrice">¥10.9</strong>
+              <span>月售 300+</span>
+            </div>
+            <h1 id="detailProductName">南瓜小米粥</h1>
+            <div class="detail-rating-row">
+              <b id="detailRating">4.9分</b>
+              <span>口味 4.9</span>
+              <span>包装 4.8</span>
+              <span>配送 4.9</span>
+            </div>
+            <div class="detail-tags" id="detailTags"></div>
+          </section>
+
+          <section class="detail-card detail-ai-card">
+            <div class="detail-section-title">
+              <div><span>AI</span><h2>为什么适合你</h2></div>
+              <b id="detailStateTag">嗓子友好</b>
+            </div>
+            <p id="detailReason"></p>
+            <div class="detail-safety-note" id="detailSafetyNote"></div>
+          </section>
+
+          <section class="detail-card detail-merchant-card">
+            <div class="detail-section-title">
+              <div><span>店</span><h2 id="detailStoreName">粥员外</h2></div>
+              <b>放心吃</b>
+            </div>
+            <dl>
+              <div><dt>配送</dt><dd id="detailDelivery">约25分钟 · 2.6km</dd></div>
+              <div><dt>服务</dt><dd>食安封签 · 超时保障 · 售后无忧</dd></div>
+              <div><dt>食材</dt><dd id="detailIngredients"></dd></div>
+            </dl>
+          </section>
+
+          <section class="detail-card detail-review-card">
+            <div class="detail-section-title">
+              <div><span>评</span><h2>商品评价 <small>3000+</small></h2></div>
+              <b id="detailPraiseRate">好评率 97%</b>
+            </div>
+            <div class="review-keywords" id="detailReviewKeywords"></div>
+            <article>
+              <div class="review-avatar">食</div>
+              <div><b>匿名用户</b><small>★★★★★</small><p id="detailReviewText"></p></div>
+            </article>
+          </section>
+        </div>
+
+        <footer class="detail-action-bar">
+          <button class="detail-cart" id="detailCartButton" type="button" aria-label="购物车">🛒<b id="detailCartCount">0</b></button>
+          <div><small>到手价</small><strong id="detailBottomPrice">¥10.9</strong></div>
+          <button id="detailAddButton" type="button">加入购物车</button>
+        </footer>
+      </section>
+
+      <section class="page checkout-page" id="checkoutPage" aria-labelledby="checkoutTitle">
+        <header class="checkout-header">
+          <button id="checkoutBack" type="button" aria-label="返回购物车">‹</button>
+          <h1 id="checkoutTitle">确认订单</h1>
+          <span></span>
+        </header>
+
+        <div class="checkout-scroll">
+          <section class="checkout-mode">
+            <button class="selected" type="button">外卖配送</button>
+            <button type="button">到店自取</button>
+          </section>
+
+          <section class="checkout-card checkout-address">
+            <button type="button">
+              <small>配送地址</small>
+              <strong>上海交通大学（闵行校区）</strong>
+              <span>东川路800号 · 学生公寓 ›</span>
+            </button>
+            <div class="delivery-choice selected"><b>立即配送</b><span>预计 35 分钟送达</span></div>
+            <div class="delivery-choice"><b>预约配送</b><span>选择时间 ›</span></div>
+            <p>🔊 点餐请适量，环保又健康</p>
+          </section>
+
+          <section class="checkout-card checkout-order-card">
+            <div class="checkout-store-row">
+              <h2>AI 状态点餐推荐</h2>
+              <span>放心吃</span>
+            </div>
+            <div class="checkout-items" id="checkoutItems"></div>
+            <dl class="checkout-fees">
+              <div><dt>商品小计</dt><dd id="checkoutSubtotal">¥0.00</dd></div>
+              <div><dt>包装费</dt><dd id="checkoutPackingFee">¥0.00</dd></div>
+              <div><dt>配送费</dt><dd><del>¥3.00</del> 免费配送</dd></div>
+              <div class="discount"><dt>AI 健康餐优惠</dt><dd id="checkoutDiscount">-¥0.00</dd></div>
+            </dl>
+          </section>
+
+          <section class="checkout-card checkout-options">
+            <button type="button"><span>备注</span><b id="checkoutRemark">少油少盐，不要香菜 ›</b></button>
+            <button type="button"><span>餐具</span><b id="checkoutUtensils">无需餐具 ›</b></button>
+          </section>
+
+          <section class="checkout-card checkout-options">
+            <button type="button"><span>支付方式</span><b>普通支付 ›</b></button>
+          </section>
+        </div>
+
+        <footer class="checkout-action-bar">
+          <div><strong id="checkoutTotal">¥0.00</strong><span id="checkoutSavings">已优惠 ¥0.00</span></div>
+          <button id="payNowButton" type="button">立即支付</button>
+        </footer>
+      </section>
+
+      <section class="page report-page" id="reportPage" aria-labelledby="reportTitle">
+        <header class="report-header">
+          <div class="report-nav">
+            <button id="reportBack" type="button" aria-label="返回">‹ <span>外卖</span></button>
+            <h1 id="reportTitle">状态周报</h1>
+            <button class="message-button" type="button" aria-label="消息">
+              <span>•••</span><b>4</b>
+            </button>
+          </div>
+          <p>⌖ 上海交通大学(闵行校区) ›</p>
+        </header>
+
+        <div class="report-content">
+          <section class="report-summary">
+            <div class="summary-copy">
+              <h2>这周你有 <b>2</b> 天嗓子不适，<b>1</b> 天熬夜后，<br>AI已为你匹配 <b>7</b> 次更合适的餐品</h2>
+              <p>照顾好自己，身体是学习和生活的本钱哦～</p>
+            </div>
+            <div class="calendar-mascot" aria-hidden="true">
+              <span class="rings">∩ ∩ ∩ ∩</span>
+              <span class="face">•ᴗ•</span>
+              <b>♥</b>
+            </div>
+
+            <section class="report-card calendar-card">
+              <div class="report-card-title">
+                <h3>本周状态日历</h3><span>5.18 - 5.24</span>
+              </div>
+              <div class="week-grid">
+                <div><small>周日<br>5/18</small><span>🫛</span><b>肠胃不适</b></div>
+                <div><small>周一<br>5/19</small><span>🫛</span><b>肠胃不适</b></div>
+                <div><small>周二<br>5/20</small><span>🌙</span><b>熬夜后</b></div>
+                <div><small>周三<br>5/21</small><span>🗣️</span><b>嗓子不适</b></div>
+                <div><small>周四<br>5/22</small><span>🗣️</span><b>嗓子不适</b></div>
+                <div><small>周五<br>5/23</small><span>💧</span><b>生理期</b></div>
+                <div><small>周六<br>5/24</small><span>🙂</span><b>状态良好</b></div>
+              </div>
+              <div class="calendar-legend">
+                <span class="pink">嗓子不适 2天</span>
+                <span class="purple">熬夜后 1天</span>
+                <span class="green">肠胃不适 2天</span>
+                <span class="red">生理期 1天</span>
+                <span class="yellow">状态良好 1天</span>
+              </div>
+            </section>
+
+            <section class="report-card hit-card">
+              <div class="report-card-title">
+                <div><h3>本周推荐命中率 <small>ⓘ</small></h3><p>AI共为你匹配 <b>7</b> 次更合适的餐品，比上周 <b>+2</b> 次</p></div>
+                <span>命中率 <b>93%↗</b></span>
+              </div>
+              <div class="top-meals">
+                <article>
+                  <i>TOP1</i><div class="weekly-food wf-one"></div>
+                  <p><b>银耳雪梨汤</b><span>点了3次<br>润肺清甜</span></p>
+                </article>
+                <article>
+                  <i>TOP2</i><div class="weekly-food wf-two"></div>
+                  <p><b>南瓜粥</b><span>点了2次<br>暖胃养护</span></p>
+                </article>
+                <article>
+                  <i class="bronze">TOP3</i><div class="weekly-food wf-three"></div>
+                  <p><b>蒸蛋</b><span>点了2次<br>温和易消化</span></p>
+                </article>
+              </div>
+            </section>
+
+            <section class="report-card avoid-card">
+              <div class="report-card-title">
+                <h3>🛡️ 少选这些 <small>根据本周状态，以下食物可能加重不适</small></h3>
+              </div>
+              <div class="report-avoid-list">
+                <div><span>🧊</span><p><b>冰饮</b><small>易刺激咽喉</small></p><i>×</i></div>
+                <div><span>🌶️</span><p><b>重辣</b><small>易加重上火</small></p><i>×</i></div>
+                <div><span>🍗</span><p><b>油炸</b><small>不易消化</small></p><i>×</i></div>
+              </div>
+            </section>
+
+            <section class="report-card reminder-card">
+              <div class="report-card-title"><h3>🔔 下周提醒</h3></div>
+              <div class="reminder-list">
+                <div><span>🗣️</span><p><b>若再次选择“嗓子疼”状态</b><small>可一键复用上次偏好</small></p><button type="button">去设置</button></div>
+                <div><span>🌙</span><p><b>熬夜后记得清淡饮食</b><small>早点休息更有利于恢复</small></p><button type="button">去设置</button></div>
+              </div>
+            </section>
+          </section>
+
+          <footer class="report-footer">
+            <button type="button" id="shareButton">⌯&nbsp; 分享我的状态周报</button>
+            <p>分享后，不会包含你的真实地址和订单信息</p>
+          </footer>
+        </div>
+      </section>
+
+      <section class="cart-sheet" id="cartSheet" hidden aria-label="购物车">
+        <button class="cart-backdrop" id="cartBackdrop" type="button" aria-label="关闭购物车"></button>
+        <div class="cart-panel">
+          <div class="cart-grabber"></div>
+          <header class="cart-header">
+            <div>
+              <span>外卖</span>
+              <h2>已加购商品</h2>
+            </div>
+            <button id="clearCartButton" type="button">清空</button>
+          </header>
+          <p class="cart-tip">已按你的忌口筛选，下单前仍建议核对商家完整配料。</p>
+          <div class="cart-items" id="cartItems"></div>
+          <footer class="cart-footer">
+            <label><input id="cartSelectAll" type="checkbox" checked><span>全选</span></label>
+            <div><strong id="cartTotal">¥0.00</strong><small id="cartSelectedCount">已选 0 件</small></div>
+            <button id="goCheckoutButton" type="button">去结算</button>
+          </footer>
+        </div>
+      </section>
+
+      <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    </section>
+  </main>
+  <script src="app.js?v=20260613-cart-checkout"></script>
+</body>
+</html>
